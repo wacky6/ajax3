@@ -32,7 +32,7 @@ field in [] is optional, value enclosed in [] is default value
         [headers]:  [{}]
             headers send to server
             {key: value}
-        [timeout]:  [30000]
+        [timeout]:  [3000]
             timeout before fail, in ms
         [success]:   function(data) 
             function to call on successful completion
