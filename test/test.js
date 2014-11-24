@@ -278,9 +278,6 @@ QUnit.asyncTest('POST, timeout', function(assert){
         failure: function(e) {
             assert.deepEqual(e, {conn: 'fail'}, 'error msg correct');
             QUnit.start();
-        },
-        progress: function(done,total) {
-            assert.ok(false,'timeout called progress()');
         }
     })
 });

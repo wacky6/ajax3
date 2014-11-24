@@ -1,11 +1,15 @@
-
+===
 AJAX 3 wrapper
+===
 
+Support:
+    IE10+, Chrome 30+, Firefox 29+
 
 *******************
     Usage
 *******************
 Usage:
+```
     $ajax({
         url: '/get_data',
         success: function(data) {
@@ -13,6 +17,7 @@ Usage:
         failure: function(error) {
         }
     });
+```
     
 Param:
     $ajax(ajax_options)
@@ -56,7 +61,7 @@ Param:
     How to test
 *************************
     1. set http server, proxy *.jsp to nodejs on port 12800
-    2. in test/, run node server.js
+    2. in test/, run `node server.js`
     3. run http server(nginx, etc.) to serve ajax3/ directory (where ajax3.js is)
-    4. visit 127.0.0.1:test/index.html
+    4. visit http://127.0.0.1:test/index.html
     5. test result should display 
