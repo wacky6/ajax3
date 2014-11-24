@@ -5,8 +5,7 @@ AJAX 3 wrapper
 Support:
     IE10+, Chrome 30+, Firefox 29+
 
-*******************
-    Usage
+### Example
 ```
     $ajax({
         url: '/get_data',
@@ -16,11 +15,15 @@ Support:
         }
     });
 ```
-    
+
+
+### Usage
+
+```
     $ajax(ajax_options)
-    
-    field in [] is optional,
-    ```
+```
+field in [] is optional, value enclosed in [] is default value
+```
     ajax_options {
         url:
         [method]:   ['get'], 'post'
@@ -53,16 +56,13 @@ Support:
             query string, urlencoded(encodeURLComponent)
             append to url if url already has query string
     }
-    ```
+```
     
-*******************
-    
-*******************
-    How to test
+### How to test
 
-    1. set http server, proxy *.jsp to nodejs on port 12800
-    2. in test/, run `node server.js`
-    3. run http server(nginx, etc.) to serve ajax3/ directory (where ajax3.js is)
-    4. visit http://127.0.0.1:test/index.html
-    5. test result should display 
-*******************
+1. set http server, proxy *.jsp to nodejs on port 12800
+2. in test/, run `node server.js`
+3. run http server(nginx, etc.) to serve ajax3/ directory (where ajax3.js is)
+4. visit `http://127.0.0.1/test/index.html`
+5. test result should display 
+
