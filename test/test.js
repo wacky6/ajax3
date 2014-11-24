@@ -305,3 +305,48 @@ QUnit.asyncTest('POST, json', function(assert) {
         }
     });
 });
+
+QUnit.module('ajax3, sync GET');
+QUnit.test('sync GET', function(assert) {
+    expect(3);
+    var x = undefined;
+    var ret = $ajax3({
+        url: '/delay.jsp',
+        sync: true,
+        success: function(recv) {
+            assert.ok(true, 'data received');
+            x = true;
+        },
+        failure: function(err) {
+            assert.ok(false, 'failure called!');
+        }
+    });
+    assert.ok(x, 'variable x is set (sync)');
+    assert.ok(undefined===ret, '$ajax() return undefined');
+});
+QUnit.test('sync POST', function(assert) {
+    expect(3);
+    var p = {
+        test: '1'
+    };
+    var x = undefined;
+    var ret = $ajax3({
+        method: 'post',
+        url: '/query_post.jsp?delay=1',
+        data: p,
+        sync: true,
+        type: 'json',
+        success: function(recv) {
+            assert.deepEqual(JSON.parse(recv.data), p, 'data correct');
+            x = true;
+        },
+        failure: function(err) {
+            assert.ok(false, 'failure called!');
+        },
+        progress: function(err) {
+            assert.ok(false, 'progress called!');
+        }
+    });
+    assert.ok(x, 'variable x is set (sync)');
+    assert.ok(undefined===ret, '$ajax() return undefined');
+});

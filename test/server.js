@@ -24,12 +24,26 @@ http_handler = function (req, res) {
         data += d_chunk;
     });
 	req.on("end", function(){
-		res.end(JSON.stringify({
-            query: q,
-            data: data
-        }));
+        function reply(res,q,d) {
+            return function() {
+                res.end(JSON.stringify({
+                    query: q,
+                    data: d
+                }));
+            }
+        }
+        if (q.delay) {
+            setTimeout(reply(res,q,data), 500);
+        }else{
+            reply(res,q,data)();
+        }
 	});
     return;
+  }
+  if (f.search('delay.jsp')!=-1) {
+    setTimeout(function(){
+        res.end('delayed');
+    }, 500);
   }
 };
 

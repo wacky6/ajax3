@@ -55,6 +55,11 @@ field in [] is optional, value enclosed in [] is default value
         [query]: query string object
             query string, urlencoded(encodeURLComponent)
             append to url if url already has query string
+        [sync]:  true, [false]
+            make synchronous request
+            js will block until ajax is complete
+            $ajax() will return `undefined`
+            success, failure will be called upon success or failure
     }
 ```
     
